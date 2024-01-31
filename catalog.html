@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Title - Vallejo Public Library</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./catalog.html">Catalog</a></li>
+                <li><a href="./library-user.html">Users</a></li>
+                <li><a href="./inquiries.html">Inquiries</a></li>
+                <li><a href="./latest-news.html">Latest News</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>《乖，摸摸头》</h2>
+        <img src="https://bkimg.cdn.bcebos.com/pic/8718367adab44aed22178be6b01c8701a18bfb52?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" alt="Cover Image - 《乖，摸摸头》">
+        <p>Author: 大冰</p>
+        <p>Genre: Fiction</p>
+        <p>Description: 《乖，摸摸头》一书让你舍不得读完的短篇故事集...</p>
+        <p>Publisher: 湖南文艺出版社</p>
+        <p>ISBN: 9787540468798</p>
+        <p id="copiesAvailable">Copies Available: 5</p>
+        <p>Total Copies: 10</p>
+        
+        <form action="./reserve.php" method="post">
+            <input type="submit" id="reserveButton" value="Reserve Book">
+        </form>
+    </section>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./catalog.html">Catalog</a></li>
+                <li><a href="./library-user.html">Users</a></li>
+                <li><a href="./inquiries.html">Inquiries</a></li>
+                <li><a href="./latest-news.html">Latest News</a></li>
+            </ul>
+        </nav>
+        <ul>
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+        <p>Contact: yang.meizi@northeastern.edu</p>
+        <p>© 2024 Vallejo Public Library. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            var copiesAvailable = document.getElementById('copiesAvailable').innerText.split(': ')[1];
+            var reserveButton = document.getElementById('reserveButton');
+            if (copiesAvailable == 0) {
+                reserveButton.disabled = true;
+                reserveButton.value = "No Copies Available";
+            }
+        }
+    </script>
+
+</body>
+</html>
