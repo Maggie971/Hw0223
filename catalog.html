@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Title - Vallejo Public Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head> 
 <body>
-
     <header>
         <h1>Vallejo Public Library</h1>
         <nav>
@@ -17,18 +16,26 @@
                 <li><a href="./library-user.html">Users</a></li>
                 <li><a href="./inquiries.html">Inquiries</a></li>
                 <li><a href="./latest-news.html">Latest News</a></li>
+                <button id="loginButton">Log in</button>
             </ul>
-            
         </nav>
-        <div class="search-box">
-            <form action="./search.php" method="get">
-                <input type="text" name="query" placeholder="Search...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
     </header>
 
-    <section>
+    <div class="search">
+        <h3 class="title">Collection Information</h3>
+        <select id="searchType" onchange="changeSearchType()">
+            <option value="direct">Directly Search</option>
+            <option value="indirect">Collect Catalog</option>
+        </select>
+    
+        <div id="searchArea">
+            <input type="text" id="searchBox" placeholder="Search...">
+        </div>     
+        <button onclick="search()">Search</button>
+    </div>
+
+    <div class="book">
+        <h3 class="title">Bibliographic Information</h3>
         <h2>《乖，摸摸头》</h2>
         <img src="https://bkimg.cdn.bcebos.com/pic/8718367adab44aed22178be6b01c8701a18bfb52?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" alt="Cover Image - 《乖，摸摸头》">
         <p>Author: 大冰</p>
@@ -36,13 +43,19 @@
         <p>Description: 《乖，摸摸头》一书让你舍不得读完的短篇故事集...</p>
         <p>Publisher: 湖南文艺出版社</p>
         <p>ISBN: 9787540468798</p>
-        <p id="copiesAvailable">Copies Available: 5</p>
-        <p>Total Copies: 10</p>
-        
-        <form action="./reserve.php" method="post">
-            <input type="submit" id="reserveButton" value="Reserve Book">
-        </form>
-    </section>
+    </div>
+
+    <div class="reservation">
+        <table id="bookTable">
+            <tr>
+                <th>Book number</th>
+                <th>Barcode number</th>
+                <th>Collection location</th>
+                <th>Status of books and periodicals</th>
+            </tr>
+            <!-- Data -->
+        </table>
+    </div>
 
     <footer>
         <nav>
@@ -61,7 +74,7 @@
         <p>© 2024 Vallejo Public Library. All rights reserved.</p>
     </footer>
 
-    <script>
+    <!-- <script>
         window.onload = function() {
             var copiesAvailable = document.getElementById('copiesAvailable').innerText.split(': ')[1];
             var reserveButton = document.getElementById('reserveButton');
@@ -70,7 +83,7 @@
                 reserveButton.value = "No Copies Available";
             }
         }
-    </script>
-
+    </script> -->
+    <script src="script.js"></script>
 </body>
 </html>
